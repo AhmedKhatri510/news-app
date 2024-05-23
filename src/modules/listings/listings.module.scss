@@ -1,0 +1,23 @@
+.listingsContainer {
+  display: flex;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+  .cardContainer {
+    display: grid;
+    align-items: stretch;
+    gap: 1.5rem;
+
+    @media screen and (min-width: 0px) and (max-width: 648px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    @media screen and (min-width: 648px) and (max-width: 1307px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media screen and (min-width: 1307px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

@@ -1,25 +1,19 @@
 // components
-import Pill from "../Pill/Pill";
-import Button from "../button/Button";
-import ImageWithFallback from "../image-with-fallback/ImageWithFallback";
+import Pill from "../../../components/Pill/Pill";
+import Button from "../../../components/button/Button";
+import ImageWithFallback from "../../../components/image-with-fallback/ImageWithFallback";
+
+// types
+import { NewsCardDetails } from "../types/type";
 
 // utils
-import { formatDateString } from "../../helper/util";
+import { formatDateString } from "../../../helper/util";
 
 // styles
 import styles from "./news-card.module.scss";
 
-type NewsCardDetail = {
-  source: string;
-  author: string;
-  title: string;
-  description: string;
-  urlToImage: string;
-  publishedAt: string;
-};
-
 type Props = {
-  newsCardDetails: NewsCardDetail;
+  newsCardDetails: NewsCardDetails;
 };
 
 const NewsCard = ({ newsCardDetails }: Props) => {
