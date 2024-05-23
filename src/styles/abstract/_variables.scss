@@ -1,0 +1,98 @@
+// COLORS
+$primary-blue: #0169ff;
+.primary-blue {
+  color: $primary-blue;
+}
+
+$primary-dark-blue: #004171;
+.primary-dark-blue {
+  color: $primary-dark-blue;
+}
+
+$primary-brand-blue: #0047ff;
+.primary-brand-blue {
+  color: $primary-brand-blue;
+}
+
+$alternate-blue: #0069b5;
+.alternate-blue {
+  color: $alternate-blue;
+}
+
+$secondary-blue-1: #9fd4ff;
+$secondary-blue-2: #e2f2ff;
+$secondary-blue-3: #f6fbff;
+
+$hover-blue: #0094ff;
+$focused-blue: #0367b0;
+
+$plans-blue: #179cfc;
+$plans-red: #f37478;
+$plans-green: #18e5c0;
+$light-green: #0eb50020;
+
+$neutral-10: #fbfbfc;
+$neutral-20: #f4f4f5;
+$neutral-30: #eaeaeb;
+$neutral-40: #c9c9cc;
+$neutral-50: #afafb4;
+$neutral-base-60: #7a7884;
+$neutral-70: #666678;
+$neutral-80: #4a495c;
+$neutral-90: #343243;
+$neutral-100: #000000;
+
+$off-white: #f7f7f7;
+$white: #fff;
+
+@mixin whiteWithTransparency($css-property, $opacity-level) {
+  #{$css-property}: rgba(255, 255, 255, $opacity-level);
+}
+
+$success-100: #e6f3ee;
+$success-200: #b5dbcb;
+$success-base-300: #067748;
+$success-400: #066d42;
+$success-mpr-200: #95c03a;
+
+$warning-100: #fffaeb;
+$warning-200: #fdecaf;
+$warning-base-300: #fbd037;
+$warning-400: #c9a62c;
+$warning-500: #ed9007;
+
+$error-100: #ffebe9;
+$error-200: #e7a69d;
+$error-base-300: #e71b00;
+$error-400: #9e1e0c;
+
+//Shadows
+$shadow20: 0px 0px 1px rgba(48, 49, 51, 0.05), 0px 1px 3px rgba(48, 49, 51, 0.1);
+$shadow40: 0px 0px 1px rgba(48, 49, 51, 0.05), 0px 2px 4px rgba(48, 49, 51, 0.1);
+$shadow60: 0px 0px 1px rgba(48, 49, 51, 0.05), 0px 4px 8px rgba(48, 49, 51, 0.1);
+$shadow80: 0px 0px 1px rgba(48, 49, 51, 0.05),
+  0px 8px 16px rgba(48, 49, 51, 0.1);
+$shadow100: 0px 0px 1px rgba(48, 49, 51, 0.05),
+  0px 16px 24px rgba(48, 49, 51, 0.1);
+
+//border-color
+$border-beige: #e2cfab;
+$border-black: $neutral-100;
+$border-blue: #0061c3;
+$border-brown: #8f620c;
+$border-gray: #808080;
+$border-green: #078852;
+$border-red: #c2200a;
+$border-silver: #e6eaee;
+$border-white: $white;
+$border-other: linear-gradient(white, white),
+  radial-gradient(
+    circle at top left,
+    #fa3232 21%,
+    rgba(233, 185, 61, 0.757004) 38.4%,
+    rgba(223, 235, 84, 0.579917) 51.07%,
+    rgba(90, 194, 26, 0.402831) 63.75%,
+    rgba(17, 80, 241, 0.4) 77.05%,
+    #950bea 92.59%,
+    rgba(18, 14, 217, 0.4) 92.59%
+  );

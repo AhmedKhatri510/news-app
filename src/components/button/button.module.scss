@@ -1,0 +1,22 @@
+@use "../../styles/abstract/variables";
+
+.btn {
+  padding: 6px 14px;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+
+  &.light {
+    border: 1px solid variables.$neutral-100;
+  }
+
+  &.dark {
+    background-color: variables.$secondary-blue-2;
+    color: variables.$primary-dark-blue;
+
+    &:hover {
+      background-color: variables.$secondary-blue-1;
+      color: variables.$primary-brand-blue;
+    }
+  }
+}

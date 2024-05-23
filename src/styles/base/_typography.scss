@@ -1,0 +1,75 @@
+@use "../abstract/variables";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900");
+
+// FONT SIZING
+$font-size-lg: 1.25rem;
+$font-size-lg-mobile: 1.125rem;
+
+$font-size-std: 1.125rem;
+$font-size-std-mobile: 1rem;
+
+$font-size-sm: 1rem;
+$font-size-sm-mobile: 0.875rem;
+
+$font-size-xs: 0.875rem;
+$font-size-xs-mobile: 0.75rem;
+
+$font-size-xxs: 0.75rem;
+$font-size-xxs-mobile: 0.625rem;
+
+html,
+body {
+  //define 1rem
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  line-height: 150%;
+
+  @media screen and (min-width: 0px) and (max-width: 648px) {
+    font-size: 14px;
+  }
+}
+
+a {
+  color: variables.$primary-blue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// UTILITY CLASSES
+.fw900 {
+  font-weight: 900 !important;
+}
+
+.fw800 {
+  font-weight: 800 !important;
+}
+
+.fw700 {
+  font-weight: 700 !important;
+}
+
+.fw600 {
+  font-weight: 600 !important;
+}
+
+.fw500 {
+  font-weight: 500 !important;
+}
+
+.fw400 {
+  font-weight: 400 !important;
+}
+
+.single-line {
+  margin: 0;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  font-weight: 500 !important;
+  letter-spacing: 1.6px;
+}
+
+.text-center {
+  text-align: center;
+}

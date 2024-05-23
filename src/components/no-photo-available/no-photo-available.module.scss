@@ -1,0 +1,35 @@
+@use "../../styles/abstract/variables";
+
+.npaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: variables.$secondary-blue-3;
+  height: 100%;
+  width: 100%;
+
+  svg {
+    font-size: 36px;
+    color: variables.$primary-blue;
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+    color: variables.$primary-dark-blue;
+  }
+
+  &.card {
+    border-radius: 1rem 1rem 0 0;
+    height: 218px;
+    min-height: 218px;
+
+    @media screen and (min-width: 0px) and (max-width: 648px) {
+      border-radius: 0.5rem;
+      height: 150px;
+      min-height: 150px;
+    }
+  }
+}
