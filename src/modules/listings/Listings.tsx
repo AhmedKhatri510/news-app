@@ -24,7 +24,7 @@ import "../listings/pagination/pagination.scss";
 const Listings = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("India");
-  const debouncedInputValue = useDebounce(searchTerm, 500);
+  const debouncedInputValue = useDebounce(searchTerm, 1000);
 
   const pageSize = 20;
 

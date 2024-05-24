@@ -1,3 +1,27 @@
+# News App
+
+It's a Single Page Web Application built using,
+
+- Vite + React + TS + Sass + React Router + React Query + Context API + Third Party Libraries
+
+- To run the project locally, please download the zip
+
+- once zip is downloaded, inorder to install all the development and project dependencies
+
+run this below command in your terminal,
+
+```bash
+npm install
+```
+
+- once installed all the develpper and project dependencies, project is ready to run locally,
+
+```bash
+npm run dev
+```
+
+before running above command, make sure you are in project root directory.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -17,12 +41,12 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`

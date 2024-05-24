@@ -20,6 +20,10 @@ import styles from "./details.module.scss";
 const Details = () => {
   const { newsCardDetails } = useContext(NewsContext);
 
+  if (!newsCardDetails) {
+    return <h1>No Details</h1>;
+  }
+
   const {
     source,
     author,
