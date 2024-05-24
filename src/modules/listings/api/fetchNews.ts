@@ -16,7 +16,7 @@ export const fetchNews = async (
 
   if (!response.ok)
     throw new Error(
-      `Error fetching news for ${searchTerm} ${pageNo} ${pageSize}`
+      `Error fetching news for SearchTerm: ${searchTerm}, pageNo: ${pageNo}, pageSize: ${pageSize}`
     );
 
   return response.json();

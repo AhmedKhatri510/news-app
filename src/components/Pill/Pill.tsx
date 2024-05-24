@@ -9,7 +9,6 @@ import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import styles from "./pill.module.scss";
 
 const INFO_TOOLTIP_STYLE = {
-  opacity: 2,
   color: "#343243",
   backgroundColor: "#eaeaeb",
   borderRadius: "0.5rem",
@@ -45,6 +44,7 @@ export default function Pill(props: Props) {
         <Tooltip
           id="my-tooltip"
           place="bottom"
+          opacity="2"
           style={{ ...INFO_TOOLTIP_STYLE, maxWidth: "100%" }}
         />
       )}

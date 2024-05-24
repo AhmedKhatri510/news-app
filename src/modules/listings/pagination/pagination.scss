@@ -1,0 +1,39 @@
+@use "../../../styles/abstract/variables";
+
+.pagination {
+  justify-content: center;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.page-item .page-link {
+  position: relative;
+  display: block;
+  margin: 0 2px;
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 40px;
+  color: variables.$focused-blue;
+  text-decoration: none;
+}
+
+.page-item a.page-link:hover {
+  background-color: variables.$primary-blue;
+  color: variables.$white;
+}
+
+.page-item.active .page-link {
+  font-weight: 700;
+  color: variables.$white;
+  background-color: variables.$focused-blue;
+}
+
+.page-item.disabled .page-link {
+  color: variables.$neutral-50;
+  pointer-events: none;
+  cursor: auto;
+}
