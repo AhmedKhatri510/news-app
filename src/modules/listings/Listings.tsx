@@ -12,7 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 import useDebounce from "../../hooks/useDebounce";
 
 // types
-import { NewsCardDetails, NewsResponse } from "./types/type";
+import { NewsDetails, NewsResponse } from "./types/type";
 
 // helper
 import { fetchNews } from "./api/fetchNews";
@@ -37,13 +37,15 @@ const Listings = () => {
   });
 
   const news = data?.articles?.map((item: NewsResponse, index: number) => {
-    const newsDetail: NewsCardDetails = {
+    const newsDetail: NewsDetails = {
       source: "",
       author: "",
       publishedAt: "",
       title: "",
       description: "",
       urlToImage: "",
+      url: "",
+      content: "",
     };
     newsDetail.source = item.source.name;
     newsDetail.author = item.author;
@@ -51,6 +53,8 @@ const Listings = () => {
     newsDetail.title = item.title;
     newsDetail.description = item.description;
     newsDetail.urlToImage = item.urlToImage;
+    newsDetail.url = item.url;
+    newsDetail.content = item.content;
 
     return <NewsCard key={index} newsCardDetails={newsDetail} />;
   });

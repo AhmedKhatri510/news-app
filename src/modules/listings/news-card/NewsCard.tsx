@@ -4,21 +4,27 @@ import Button from "../../../components/button/Button";
 import ImageWithFallback from "../../../components/image-with-fallback/ImageWithFallback";
 
 // types
-import { NewsCardDetails } from "../types/type";
+import { NewsDetails } from "../types/type";
 
 // utils
 import { formatDateString } from "../../../helper/util";
 
 // styles
 import styles from "./news-card.module.scss";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import NewsContext from "../../../context/NewsContext";
 
 type Props = {
-  newsCardDetails: NewsCardDetails;
+  newsCardDetails: NewsDetails;
 };
 
 const NewsCard = ({ newsCardDetails }: Props) => {
   const { source, author, title, description, urlToImage, publishedAt } =
     newsCardDetails;
+  const { setNewsCardDetails } = useContext(NewsContext);
+
+  const navigate = useNavigate();
 
   const formattedPublishedDate = formatDateString(publishedAt);
   return (
@@ -70,7 +76,10 @@ const NewsCard = ({ newsCardDetails }: Props) => {
           <Button
             text="View More"
             type="dark"
-            handleClick={() => console.log("view more!")}
+            handleClick={() => {
+              setNewsCardDetails(newsCardDetails);
+              navigate("/details");
+            }}
           />
         </div>
       </section>

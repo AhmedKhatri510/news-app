@@ -11,3 +11,7 @@ export function formatDateString(inputDateString: string): string {
 
   return date.toLocaleString("en-US", options);
 }
+
+export const openUrlInNewTab = (url: string): void => {
+  window.open(url, "_blank");
+};
