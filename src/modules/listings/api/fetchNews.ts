@@ -6,6 +6,11 @@ export const fetchNews = async (
 ) => {
   const { searchTerm, pageNo, pageSize } = queryParams.queryKey[1];
 
+  if (!searchTerm)
+    throw new Error(
+      `No Result found for SearchTerm: ${searchTerm}, pageNo: ${pageNo}, pageSize: ${pageSize}`
+    );
+
   const response = await fetch(
     `${
       import.meta.env.VITE_API_URL

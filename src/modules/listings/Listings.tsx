@@ -4,9 +4,12 @@ import { useState } from "react";
 import NewsCard from "./news-card/NewsCard";
 import Loading from "../../components/loading/Loading";
 import ResponsivePagination from "react-responsive-pagination";
+import { Link } from "react-router-dom";
+import SearchBar from "../../components/search-bar/SearchBar";
 
 // hook
 import { useQuery } from "@tanstack/react-query";
+import useDebounce from "../../hooks/useDebounce";
 
 // types
 import { NewsCardDetails, NewsResponse } from "./types/type";
@@ -17,15 +20,19 @@ import { fetchNews } from "./api/fetchNews";
 // styles
 import styles from "./listings.module.scss";
 import "../listings/pagination/pagination.scss";
-import { Link } from "react-router-dom";
 
 const Listings = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const searchTerm = "India";
+  const [searchTerm, setSearchTerm] = useState("India");
+  const debouncedInputValue = useDebounce(searchTerm, 500);
+
   const pageSize = 20;
 
   const { data, isSuccess, isLoading, isError, error } = useQuery({
-    queryKey: ["listings", { searchTerm, pageNo: currentPage, pageSize }],
+    queryKey: [
+      "listings",
+      { searchTerm: debouncedInputValue, pageNo: currentPage, pageSize },
+    ],
     queryFn: fetchNews,
   });
 
@@ -50,12 +57,17 @@ const Listings = () => {
 
   const totalPages = data?.totalResults ?? 0;
 
-  const errorElement = (
+  const errorElement = (errorMessage: string) => (
     <>
-      <h2>{error?.message}</h2>
+      <h2>{errorMessage}</h2>
       <p>
         <Link to="/">
-          <a onClick={() => setCurrentPage(1)}>
+          <a
+            onClick={() => {
+              setCurrentPage(1);
+              setSearchTerm("India");
+            }}
+          >
             Click here to go back to Listings Page
           </a>
         </Link>
@@ -69,17 +81,21 @@ const Listings = () => {
 
   return (
     <div className={styles.listingsContainer}>
+      <SearchBar input={searchTerm} setInput={setSearchTerm} />
       {isLoading && <Loading />}
-      {isError && errorElement}
-      <div className={styles.cardContainer}>{isSuccess && news}</div>
-      {isSuccess && (
-        <div>
-          <ResponsivePagination
-            total={totalPages}
-            current={currentPage}
-            onPageChange={(page) => handlePageChange(page)}
-          />
-        </div>
+      {isError && errorElement(error.message)}
+      {isSuccess && !news.length && errorElement("No Result Found!")}
+      {isSuccess && news.length > 0 && (
+        <>
+          <div className={styles.cardContainer}>{news}</div>
+          <div>
+            <ResponsivePagination
+              total={totalPages}
+              current={currentPage}
+              onPageChange={(page) => handlePageChange(page)}
+            />
+          </div>
+        </>
       )}
     </div>
   );
